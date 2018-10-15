@@ -12,7 +12,7 @@ install_homebrew(){
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
-# tap
+# 添加软件仓库
 brew_tap_list(){
 	brew tap homebrew/versions
 	brew tap homebrew/binary
@@ -76,11 +76,11 @@ if command -v brew > /dev/null 2>&1; then
 else
 	echo -e '您的Mac OS尚未安装Homebrew，正准备为您安装🍻  \n'
 	install_homebrew
-	brew_tap_list
+	brew update
 fi
 
-# 确保使用最新的Homebrew
-brew update
+# 添加软件仓库
+brew_tap_list
 
 # CLI软件包清单
 install_cli_app
