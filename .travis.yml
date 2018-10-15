@@ -3,7 +3,7 @@ os: osx
 language: C
 
 script: 
-       - chmod u+x install_app_for_mac.sh
+       - chmod u+x brew_install_app_for_mac.sh
        - ./brew_install_app_for_mac.sh
 
 after_success: 
