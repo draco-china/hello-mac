@@ -1,6 +1,9 @@
 # Daker-script
 
+[![Build Status](https://travis-ci.org/Daker-china/Daker-script.svg?branch=master)](https://travis-ci.org/Daker-china/Daker-script)
+
 ## 介绍
+
 这是一个为你的Mac自动安装软件的Bash脚本，让你抽出时间喝咖啡而不是把时间花费在下载和安装你需要的软件。
 
 ## 开始
