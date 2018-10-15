@@ -14,8 +14,6 @@ install_homebrew(){
 
 # 添加软件仓库
 brew_tap_list(){
-	brew tap homebrew/versions
-	brew tap homebrew/binary
 	brew tap caskroom/versions
 	brew tap caskroom/cask
 }
