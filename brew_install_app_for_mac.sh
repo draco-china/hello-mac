@@ -14,10 +14,10 @@ install_homebrew(){
 
 # tap
 brew_tap_list(){
-  brew tap homebrew/versions
-  brew tap homebrew/binary
-  brew tap caskroom/versions
-  brew tap caskroom/cask
+	brew tap homebrew/versions
+	brew tap homebrew/binary
+	brew tap caskroom/versions
+	brew tap caskroom/cask
 }
 
 # GUI软件包清单
@@ -76,7 +76,7 @@ if command -v brew > /dev/null 2>&1; then
 else
 	echo -e '您的Mac OS尚未安装Homebrew，正准备为您安装🍻  \n'
 	install_homebrew
-  brew_tap_list
+	brew_tap_list
 fi
 
 # 确保使用最新的Homebrew
