@@ -1,0 +1,9 @@
+os: osx
+
+language: C
+
+script: ./install_app_for_mac.sh
+
+after_success: 
+        - brew list | cat
+        - echo "Build Passed"
