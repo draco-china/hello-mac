@@ -14,42 +14,51 @@ install_homebrew(){
 
 # 添加软件仓库
 brew_tap_list(){
-	brew tap caskroom/versions
-	brew tap caskroom/cask
+	brew tap homebrew/cask
+	brew tap homebrew/cask-versions
+	brew tap homebrew/cask-fonts
+	brew tap homebrew/core
+	brew tap homebrew/services
 }
 
 # GUI软件包清单
 # 在这里添加或者删除你需要的GUI软件包名称
 
 brew_cask_app_list=(
-aliwangwang
-folx
-microsoft-office
-typora
-battle-net
-google-chrome
-shadowsocksx-ng
-visual-studio-code
-cleanmymac
-iina-beta
-sketch
-vmware-fusion
-dash
-iterm2
-teamviewer
-webstorm
-docker
-java8
-thunder
-wechatwebdevtools
-navicat-premium
+	adobe-creative-cloud
+	aliwangwang
+	axure-rp
+	baidunetdisk
+	battle-net
+	cleanmymac
+	dash
+	docker
+	etcher
+	google-chrome
+	iina
+	iterm2
+	java8
+	microsoft-office
+	omnigraffle
+	postman
+	sketch
+	teamviewer
+	thunder
+	tunnelblick
+	typora
+	v2rayx
+	visual-studio-code-insiders
+	vmware-fusion
+	wechatwebdevtools
+	zoomus
 )
 
 # CLI软件包清单
 brew_cli_app_list=(
-mysql
-node
-tomcat
+	nginx
+	node
+	tomcat
+	zsh-autosuggestions
 )
 
 # 安装GUI软件包
