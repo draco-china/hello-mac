@@ -1,6 +1,6 @@
 # Draco-script
 
-[![Build Status](https://travis-ci.org/Daker-china/Daker-script.svg?branch=master)](https://travis-ci.org/Daker-china/Daker-script)
+[![Build Status](https://travis-ci.org/Draco-china/Draco-script.svg?branch=master)](https://travis-ci.org/Daker-china/Daker-script)
 
 ## 介绍
 
