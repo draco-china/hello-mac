@@ -26,24 +26,16 @@ brew_tap_list(){
 
 brew_cask_app_list=(
 	adobe-creative-cloud
-	aliwangwang
 	axure-rp
-	baidunetdisk
 	battle-net
 	cleanmymac
 	dash
 	docker
-	etcher
 	google-chrome
 	iina
 	iterm2
-	java8
-	microsoft-office
-	omnigraffle
 	postman
-	sketch
 	teamviewer
-	thunder
 	tunnelblick
 	typora
 	v2rayx
@@ -57,7 +49,6 @@ brew_cask_app_list=(
 brew_cli_app_list=(
 	nginx
 	node
-	tomcat
 	zsh-autosuggestions
 )
 
