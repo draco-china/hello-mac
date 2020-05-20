@@ -37,46 +37,49 @@ install_homebrew_tuna_tsinghua(){
 # 添加软件仓库
 brew_tap_list(){
 	brew tap homebrew/cask
-	brew tap homebrew/cask-versions
+	brew tap homebrew/cask-drivers
 	brew tap homebrew/cask-fonts
+	brew tap homebrew/cask-versions
 	brew tap homebrew/core
 	brew tap homebrew/services
-  brew tap mongodb/brew
+	brew tap mongodb/brew
 }
 
 # GUI软件包清单
 # 在这里添加或者删除你需要的GUI软件包名称
 
 brew_cask_app_list=(
-	aliworkbench					# 千牛卖家工作台
-	battle-net						# 暴雪战网
-	charles								# 抓包神器 / Mock工具
-	cheatsheet						# 应用快捷键提示
-	iterm2								# 终端
-  free-download-manager # mac下载器
-	royal-tsx							# ssh工具客户端
-	v2rayu								# 科学上网
-	dash          				# Mac专属的文档管理工具
-	mark-text     				# markdown 编辑器
-	teamviewer						# 远程工具
-	visual-studio-code		# idea
-	google-chrome					# Google 浏览器
-	pock									# Touchbar 自定义
-	tencent-lemon					# 腾讯柠檬清理
-	vmware-fusion					# 虚拟机
-	iina									# 视频播放器
-	postman								# API 请求测试
-	tunnelblick						# OpenVPN Client 的一个 GUI 版本
-	zoomus								# 远程会议
+	adobe-creative-cloud	# Adobe
+	aliworkbench		# 千牛卖家工作台
+	battle-net		# 暴雪战网
+	charles			# 抓包神器 / Mock工具
+	cheatsheet		# 应用快捷键提示
+	dash          		# Mac专属的文档管理工具
+	electerm		# ssh工具客户端
+  	free-download-manager 	# mac下载器
+	google-chrome		# Google 浏览器
+	iina			# 视频播放器
+	iterm2			# 终端
+	mark-text     		# markdown 编辑器
+	pock			# Touchbar 自定义
+	postman			# API 请求测试
+	royal-tsx		# ssh工具客户端
+	teamviewer		# 远程工具
+	tencent-lemon		# 腾讯柠檬清理
+	trojan-qt5		# Trojan
+	tunnelblick		# OpenVPN Client 的一个 GUI 版本
+	visual-studio-code	# idea
+	vmware-fusion		# 虚拟机
+	wechatwebdevtools	# 微信开发者工具
+	zoomus			# 远程会议
 )
 
 # CLI软件包清单
 brew_cli_app_list=(
 	nginx
 	node
+	yarn
 	mongodb-community
-	zsh-syntax-highlighting	# zsh 高亮插件
-	zsh-autosuggestions			# zsh 提示插件
 )
 
 # 安装GUI软件包
