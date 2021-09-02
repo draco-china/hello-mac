@@ -15,8 +15,6 @@ install_homebrew(){
 # 添加软件仓库
 brew_tap_list(){
 	brew tap homebrew/cask
-	brew tap homebrew/cask-drivers
-	brew tap homebrew/cask-fonts
 	brew tap homebrew/cask-versions
 	brew tap homebrew/core
 	brew tap homebrew/services
