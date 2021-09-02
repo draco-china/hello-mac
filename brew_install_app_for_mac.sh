@@ -9,30 +9,8 @@ cat << -EOF
 
 # 安装 Homebrew
 install_homebrew(){
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
-
-install_homebrew_ustc(){
-	/usr/bin/ruby -e ./install_homebrew_ustc
-
-	git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/brew.git
-
-	git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
-
-	git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
-}
-
-install_homebrew_tuna_tsinghua(){
-	/usr/bin/ruby -e ./install_homebrew_tuna_tsinghua
-	
-	git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-
-	git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-
-	git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-
-}
-
 
 # 添加软件仓库
 brew_tap_list(){
@@ -110,32 +88,7 @@ if command -v brew > /dev/null 2>&1; then
 	echo -e '您的Mac已经安装了Homebrew，即将为您安装列表中的软件包🍻  \n'
 else
 	echo -e '您的Mac OS尚未安装Homebrew，正准备为您安装🍻  \n'
-	if read -t 3 -sp "按下任意键选择安装源，倒计时3秒后选择默认源安装🍻" user_command;then
-		PS3="请选择 Homebrew 安装源: "
-		select oper in "默认源" "中科大" "清华大学"; do # 生成选择菜单
-		case ${oper} in
-			"默认源")
-				echo -e '开始从 默认源 安装Homebrew🍻  \n'
-				return install_homebrew
-			;;
-			"中科大")
-				echo -e '开始从 中科大 安装Homebrew🍻  \n'
-				return install_homebrew_mirrors_ustc
-			;;
-			"清华大学")
-				echo -e '开始从 清华大学 安装Homebrew🍻  \n'
-				return install_homebrew_tuna_tsinghua
-			;;
-			*)
-				return install_homebrew
-			;;
-		esac
-		break
-		done
-	else
-		echo -e '开始从 默认源 安装Homebrew🍻  \n'
-		install_homebrew
-	fi
+	install_homebrew
 	brew update
 fi
 
