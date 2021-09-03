@@ -37,7 +37,7 @@ brew_cask_app_list=(
 	iterm2											# 终端
 	# lark											# 飞书
 	# motrix										# 一款全能的下载工具
-	# parallels									# 虚拟机
+	parallels									# 虚拟机
 	# platelet									# 血小板
 	pock												# Touchbar 自定义
 	# postman										# API 请求测试
@@ -61,7 +61,7 @@ brew_cli_app_list=(
 	# nginx
 	# node
 	nvm
-	yarn
+	# yarn
 	# mongodb-community
 )
 
