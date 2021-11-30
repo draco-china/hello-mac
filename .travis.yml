@@ -3,6 +3,9 @@ os: osx
 language: C
 
 script: 
+       - softwareupdate --all --install --force
+       - sudo rm -rf /Library/Developer/CommandLineTools
+       - sudo xcode-select --install
        - chmod u+x ./brew_install_app_for_mac.sh
        - ./brew_install_app_for_mac.sh
 
