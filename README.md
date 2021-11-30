@@ -1,6 +1,6 @@
 # Draco-script
 
-[![Build Status](https://travis-ci.org/Draco-china/Draco-script.svg?branch=master)](https://travis-ci.org/Draco-china/Draco-script)
+[![Build Status](https://app.travis-ci.com/Draco-china/Draco-script.svg?branch=master)](https://travis-ci.org/Draco-china/Draco-script)
 
 ## 介绍
 
