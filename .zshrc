@@ -100,8 +100,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# 设置显示时间
+# spaceship 主题配置
+## 设置显示时间
 SPACESHIP_TIME_SHOW="true"
-# 设置显示用户名
+## 设置显示用户名
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_USER_COLOR="212"
+
+# NVM 配置
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
