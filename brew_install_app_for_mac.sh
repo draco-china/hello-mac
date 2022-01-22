@@ -24,39 +24,68 @@ brew_tap_list(){
 # 在这里添加或者删除你需要的GUI软件包名称
 
 brew_cask_app_list=(
-	adobe-creative-cloud			# Adobe
-	# aliworkbench				# 千牛卖家工作台
-	battle-net				# 暴雪战网
-	electerm				# ssh工具客户端
-	# charles				# 抓包神器 / Mock工具
-	cheatsheet				# 应用快捷键提示
-	clashx-pro				# clashx
-	dash          				# Mac专属的文档管理工具
-	dingtalk					# 钉钉
-	font-fira-code				# Fira Code字体
-	google-chrome				# Google 浏览器
-	iina					# 视频播放器
-	iterm2					# 终端
-	lark					# 飞书
-	neteasemusic				# 网易云
-	# motrix				# 一款全能的下载工具
-	parallels				# 虚拟机
-	# platelet				# 血小板
-	pock					# Touchbar 自定义
-	# postman				# API 请求测试
-	qq					# qq
-	qqmusic					# qq音乐
-	royal-tsx				# ssh工具客户端
-	teamviewer				# 远程工具
-	tencent-lemon				# 腾讯柠檬清理
-	# tencent-meetin			# 腾讯会议
-	# tunnelblick				# OpenVPN Client 的一个 GUI 版本
-	typora					# markdown 编辑器
-	visual-studio-code			# idea
-	vmware-fusion				# 虚拟机
-	wechat					# 微信
-	wechatwebdevtools			# 微信开发者工具
-	# zoom					# 远程会议
+	# Adobe
+	adobe-creative-cloud
+	# 暴雪战网
+	battle-net
+	# ssh工具客户端
+	electerm
+	# 抓包神器 / Mock工具
+	# charles
+	# 应用快捷键提示
+	cheatsheet
+	# clashx
+	clashx-pro
+	# Mac专属的文档管理工具
+	dash
+	# 钉钉
+	dingtalk
+	# Fira Code字体
+	font-fira-code
+	# Google 浏览器
+	google-chrome
+	# 视频播放器
+	iina
+	# 终端
+	iterm2
+	# 飞书
+	lark
+	# 网易云音乐
+	neteasemusic
+	# 一款全能的下载工具
+	# motrix
+	# 虚拟机
+	parallels
+	# 血小板
+	# platelet
+	# Touchbar 自定义
+	pock
+	# API 请求测试
+	# postman
+	# qq
+	qq
+	# qq音乐
+	qqmusic
+	# ssh工具客户端
+	# royal-tsx
+	# 远程工具
+	teamviewer
+	# 腾讯柠檬清理
+	tencent-lemon
+	# 腾讯会议
+	# tencent-meetin
+	# OpenVPN Client 的一个 GUI 版本
+	# tunnelblick
+	# idea
+	visual-studio-code
+	# 虚拟机
+	vmware-fusion
+	# 微信
+	wechat
+	# 微信开发者工具
+	wechatwebdevtools
+	# 远程会议
+	# zoom
 )
 
 # CLI软件包清单
