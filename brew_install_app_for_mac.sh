@@ -14,9 +14,8 @@ install_homebrew(){
 
 # 添加软件仓库
 brew_tap_list(){
-	# brew tap homebrew/cask
 	brew tap homebrew/cask-versions
-	# brew tap homebrew/core
+	brew tap homebrew/cask-fonts
 	# brew tap homebrew/services
 	# brew tap mongodb/brew
 }
@@ -34,6 +33,7 @@ brew_cask_app_list=(
 	clashx-pro				# clashx
 	dash          				# Mac专属的文档管理工具
 	dingtalk					# 钉钉
+	font-fira-code				# Fira Code字体
 	google-chrome				# Google 浏览器
 	iina					# 视频播放器
 	iterm2					# 终端

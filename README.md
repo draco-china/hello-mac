@@ -20,3 +20,26 @@
 ## 使用
 
 > `./brew_install_app_for_mac.sh`
+
+### iterm2 + oh-my-zsh 安装配置
+
+安装软件及相关命令
+> `./install_oh_my_zsh.sh` 
+
+oh-my-zsh 配置文件
+`.zshrc`
+
+iterm2 One Dark 主题文件
+`OneHalfDark.itermcolors`
+
+iterm2 One Dark 主题文件
+`OneHalfDark.terminal`
+
+iterm2 默认配置文件
+`Default.json`
+
+VS Code 字体配置
+`'Fira Mono for Powerline', 'Fira Code', Consolas, 'Courier New', monospace`
+
+Terminal && Iterm2 字体配置
+`'Fira Mono for Powerline'`
