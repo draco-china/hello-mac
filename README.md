@@ -30,7 +30,7 @@ oh-my-zsh 配置文件
 iTerm2 Dracula+ 主题文件
 `Dracula+.itermcolors`
 
-iTerm2 Dracula+ 主题文件
+Terminal Dracula+ 主题文件
 `Dracula+.terminal`
 
 Terminal 默认配置文件
