@@ -1,7 +1,5 @@
 # Draco-script
 
-[![Build Status](https://app.travis-ci.com/Draco-china/Draco-script.svg?branch=master)](https://travis-ci.org/Draco-china/Draco-script)
-
 ## 介绍
 
 这是一个为你的Mac自动安装软件的Bash脚本，让你抽出时间喝咖啡而不是把时间花费在下载和安装你需要的软件。
@@ -29,11 +27,11 @@
 oh-my-zsh 配置文件
 `.zshrc`
 
-iterm2 One Dark 主题文件
-`OneHalfDark.itermcolors`
+iterm2 Dracula+ 主题文件
+`Dracula+.itermcolors`
 
-iterm2 One Dark 主题文件
-`OneHalfDark.terminal`
+iterm2 Dracula+ 主题文件
+`Dracula+.terminal`
 
 iterm2 默认配置文件
 `Default.json`
