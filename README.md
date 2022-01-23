@@ -19,7 +19,7 @@
 
 > `./brew_install_app_for_mac.sh`
 
-### iterm2 + oh-my-zsh 安装配置
+### iTerm2 + oh-my-zsh 安装配置
 
 安装软件及相关命令
 > `./install_oh_my_zsh.sh` 
@@ -27,17 +27,26 @@
 oh-my-zsh 配置文件
 `.zshrc`
 
-iterm2 Dracula+ 主题文件
+iTerm2 Dracula+ 主题文件
 `Dracula+.itermcolors`
 
-iterm2 Dracula+ 主题文件
+iTerm2 Dracula+ 主题文件
 `Dracula+.terminal`
 
-iterm2 默认配置文件
+Terminal 默认配置文件
 `Default.json`
 
 VS Code 字体配置
 `'Fira Mono for Powerline', 'Fira Code', Consolas, 'Courier New', monospace`
 
-Terminal && Iterm2 字体配置
+Terminal && iTerm2 字体配置
 `'Fira Mono for Powerline'`
+
+Terminal 效果预览
+![Terminal](./img/Terminal.png)
+
+iTerm2 效果预览
+![iTerm2](./img/iTerm2.png)
+
+VS Code 效果预览
+![VS Code](./img/VS%20Code.png)
