@@ -2,7 +2,8 @@
 
 echo -e "安装 sourcecodepro 字体"
 brew tap homebrew/cask-fonts
-brew install font-sourcecodepro-nerd-font --cask
+brew cask install font-sourcecodepro-nerd-font-mono --cask
+# brew install font-sourcecodepro-nerd-font --cask
 
 echo -e "安装 oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
