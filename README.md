@@ -37,10 +37,10 @@ Terminal 默认配置文件
 `Default.json`
 
 VS Code 字体配置
-`'Fira Mono for Powerline', 'Fira Code', Consolas, 'Courier New', monospace`
+`'SauceCodePro Nerd Font Mono', Consolas, 'Courier New', monospace`
 
 Terminal && iTerm2 字体配置
-`'Fira Mono for Powerline'`
+`'SauceCodePro Nerd Font Mono'`
 
 Terminal 效果预览
 ![Terminal](./img/Terminal.png)
