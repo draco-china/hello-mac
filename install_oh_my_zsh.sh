@@ -1,14 +1,8 @@
 #! /bin/bash
 
-echo -e "安装 powerline-fonts 字体"
-# clone
-git clone https://github.com/powerline/fonts.git --depth=1
-# install
-cd fonts
-./install.sh
-# clean-up a bit
-cd ..
-rm -rf fonts
+echo -e "安装 sourcecodepro 字体"
+brew tap homebrew/cask-fonts
+brew install font-sourcecodepro-nerd-font --cask
 
 echo -e "安装 oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
