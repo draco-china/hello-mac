@@ -37,7 +37,7 @@ Terminal 默认配置文件
 `Default.json`
 
 VS Code 字体配置
-`'SauceCodePro Nerd Font Mono', Consolas, 'Courier New', monospace`
+`"Monaco, Meslo, Consolas, 'Courier New', monospace, 'SauceCodePro Nerd Font Mono'"`
 
 Terminal && iTerm2 字体配置
 `'SauceCodePro Nerd Font Mono'`
