@@ -6,6 +6,7 @@ on:
     paths:
       - setup.sh
       - scripts/**
+      - tests/**
       - config/zsh/**
       - Brewfile
       - docs/demo.tape
