@@ -38,7 +38,7 @@ if [[ $DRY_RUN == 0 ]]; then
 fi
 ensure_homebrew
 if [[ $action != shell ]]; then
-    run brew bundle install --file="$BREWFILE" --no-upgrade
+    run brew bundle install --file="$BREWFILE"
 fi
 if [[ $action != apps ]]; then
     # shellcheck source=scripts/shell.sh

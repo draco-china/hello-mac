@@ -12,7 +12,7 @@ Set TypingSpeed 75ms
 Set Framerate 15
 
 Hide
-Type "export ZDOTDIR=\"$HELLO_MAC_DEMO_DIR/zsh\"; exec zsh"
+Type "export ZDOTDIR=$HELLO_MAC_DEMO_DIR/zsh; exec zsh"
 Enter
 Sleep 3s
 Type "clear"

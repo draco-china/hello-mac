@@ -90,9 +90,9 @@ cask "font-fira-code"
 # cask "postman"
 ```
 
-`Brewfile.local` 已加入 `.gitignore`，适合保存个人选择。部分暂不可用的软件也以注释保留，并附有说明；重新启用前请核对对应的软件名称与安装要求。
+`Brewfile.local` 已加入 `.gitignore`，适合保存个人选择。清单结合维护者本机已安装的应用与主动安装的命令行工具，不展开间接依赖。确认不存在、已禁用或停止维护的条目已移除；仍可用的可选软件保留为注释。PostgreSQL 使用不指定版本的 `postgresql` 别名，跟随 Homebrew 当前稳定主版本。Hyper VPN 使用公开 tap，不依赖本机 SSH 地址。VS Code 扩展、npm 全局包和仅通过 App Store 安装的应用未导入此清单。
 
-软件安装使用 `brew bundle install --no-upgrade`，不主动升级清单中已安装的软件，但 Homebrew 仍可能按依赖需要更新组件。脚本不执行全局缓存清理。
+软件安装使用 `brew bundle install`，按 Homebrew 规则安装缺失项目并升级过时项目，跟随各软件源当前提供的版本。数据库跨主版本升级仍可能需要迁移数据。脚本不执行全局缓存清理。
 
 ## 终端配置
 

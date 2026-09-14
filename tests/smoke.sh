@@ -9,7 +9,8 @@ trap 'rm -rf "$test_dir"' EXIT
 bash -n "$ROOT_DIR/setup.sh" "$ROOT_DIR/scripts/common.sh" "$ROOT_DIR/scripts/shell.sh"
 "$ROOT_DIR/setup.sh" --help >/dev/null
 "$ROOT_DIR/setup.sh" all --dry-run > "$test_dir/plan"
-grep -q -- '--no-upgrade' "$test_dir/plan"
+grep -q 'brew bundle install' "$test_dir/plan"
+if grep -q -- '--no-upgrade' "$test_dir/plan"; then exit 1; fi
 if "$ROOT_DIR/setup.sh" --file "$test_dir/missing" --dry-run >/dev/null 2>&1; then exit 1; fi
 if "$ROOT_DIR/setup.sh" --unknown >/dev/null 2>&1; then exit 1; fi
 if "$ROOT_DIR/setup.sh" --file >/dev/null 2>&1; then exit 1; fi

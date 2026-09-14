@@ -1,12 +1,15 @@
 # 修改此文件，或复制为 Brewfile.local 后通过 --file 使用。
-# 保留原清单与注释；失效软件暂不参与安装。
+# 结合本机安装记录维护；保留可选软件与注释，移除确认不存在的条目。
+
+# 本机安装的第三方软件源
+tap "hyperpteltd/tap"
 
 # CLI 软件包清单
 # brew "nginx"
 # brew "node"
 brew "nvm"
 # brew "yarn"
-# brew "mongodb-community" # 需要 mongodb/brew tap
+# brew "mongodb/brew/mongodb-community" # 需要 mongodb/brew tap
 brew "bat"
 
 # 原可选仓库（按需启用）
@@ -23,12 +26,6 @@ cask "battle-net"
 cask "electerm"
 # 抓包神器 / Mock 工具
 # cask "charles"
-# 应用快捷键提示（Homebrew 已禁用，项目停止维护）
-# cask "cheatsheet"
-# ClashX（原可选项）
-# cask "clashx"
-# ClashX Pro（原 token 在 Homebrew 官方 API 返回 404）
-# cask "clashx-pro"
 # Mac 专属的文档管理工具
 cask "dash"
 # 钉钉
@@ -49,8 +46,6 @@ cask "neteasemusic"
 # cask "motrix"
 # 虚拟机
 cask "parallels"
-# 血小板
-# cask "platelet"
 # Touch Bar 自定义（仅适合带 Touch Bar 的 Mac）
 cask "pock"
 # API 请求测试
@@ -65,17 +60,59 @@ cask "qqmusic"
 cask "teamviewer"
 # 腾讯柠檬清理
 cask "tencent-lemon"
-# 腾讯会议（原注释 token: tencent-meetin，保留供核对）
-# cask "tencent-meeting"
+# 腾讯会议
+cask "tencent-meeting"
 # OpenVPN Client 的一个 GUI 版本
 # cask "tunnelblick"
 # idea（原注释如此，实际下方条目是 VS Code）
 cask "visual-studio-code"
-# 虚拟机（原 token 在 Homebrew 官方 API 返回 404）
-# cask "vmware-fusion"
 # 微信
 cask "wechat"
 # 微信开发者工具
 cask "wechatwebdevtools"
 # 远程会议
-# cask "zoom"
+cask "zoom"
+
+# 本机补充：命令行工具（仅主动安装项，不展开间接依赖）
+# Dependency manager for Cocoa projects
+brew "cocoapods"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# GitHub command-line tool
+brew "gh"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# TIFF library and utilities
+brew "libtiff"
+# PostgreSQL（跟随 Homebrew 当前稳定主版本）
+brew "postgresql"
+# Rust toolchain installer
+brew "rustup"
+
+# 本机补充：应用与字体
+# Tools for building Android applications
+cask "android-studio"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Collaborative team software
+cask "figma"
+# Terminal font with prompt icons
+cask "font-sauce-code-pro-nerd-font"
+# Hyper VPN（使用公开 tap，不依赖本机 SSH 别名）
+cask "hyperpteltd/tap/hyper-vpn"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# SSH client
+cask "termius"
+# All-in-one office suite
+cask "wpsoffice"
+
+# 本机手动安装、已核对官方 cask 的应用
+# ChatGPT
+cask "chatgpt"
+# Windows App / Remote Desktop
+cask "windows-app"

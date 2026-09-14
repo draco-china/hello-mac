@@ -37,6 +37,8 @@ jobs:
           echo "HELLO_MAC_DEMO_DIR=$RUNNER_TEMP/hello-mac-demo" >> "$GITHUB_ENV"
           sudo apt-get update
           sudo apt-get install -y zsh
+          # The hosted runner image exposes this completion directory as writable.
+          sudo chmod go-w /usr/share/zsh
           curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/SourceCodePro.zip -o "$RUNNER_TEMP/source-code-pro.zip"
           mkdir -p "$HOME/.local/share/fonts/hello-mac"
           unzip -q "$RUNNER_TEMP/source-code-pro.zip" '*.ttf' -d "$HOME/.local/share/fonts/hello-mac"

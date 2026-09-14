@@ -90,9 +90,9 @@ cask "font-fira-code"
 # cask "postman"
 ```
 
-`Brewfile.local` is ignored by Git. Unavailable entries are preserved as comments with notes; check their current package names and requirements before enabling them.
+`Brewfile.local` is ignored by Git. The list combines the existing selection with apps and explicitly installed formulae from the maintainer’s Mac. Missing, disabled, and discontinued entries are removed; available optional apps remain commented out. PostgreSQL uses the unversioned `postgresql` alias to follow Homebrew’s current stable major version. Hyper VPN uses its public tap without a machine-specific SSH URL. VS Code extensions, global npm packages, and App Store-only apps are not imported into this list.
 
-App installation uses `brew bundle install --no-upgrade` to avoid explicitly upgrading installed entries. Homebrew may still update dependencies as needed. Setup does not run global cache cleanup.
+App installation uses `brew bundle install`: missing entries are installed and outdated entries are upgraded according to Homebrew’s rules. Formulae and casks follow the current versions offered by their taps. Database major-version upgrades may still require data migration. Setup does not run global cache cleanup.
 
 ## Shell setup
 
