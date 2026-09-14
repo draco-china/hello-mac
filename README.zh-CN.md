@@ -11,6 +11,12 @@
 - **保留个人设置**：基于官方默认 `.zshrc` 增量配置；已有文件默认保留，更新前备份。
 - **先预览再执行**：支持安装计划预览，适配 Apple Silicon 和 Intel 的 Homebrew 路径。
 
+## 终端预览
+
+![Hello Mac 命令帮助和安装计划预览](docs/demo.gif)
+
+由 CI 录制真实的 `--help` 和 `all --dry-run` 输出。演示不会安装应用，也不代表 macOS 原生终端窗口的外观。
+
 ## 快速开始
 
 准备一台 macOS 电脑，确保可以访问 Homebrew 和 GitHub，并已安装 Git。首次运行 Git 时，系统可能提示安装 Xcode Command Line Tools。
@@ -201,5 +207,15 @@ shellcheck -x setup.sh scripts/*.sh tests/*.sh
 回归测试在临时目录中模拟安装命令，验证预览、参数校验、配置保留与备份、官方模板使用、重复执行及下载失败处理，不安装真实应用。GitHub Actions 还检查 Brewfile、JSON 和配色文件的语法。
 
 这些检查不替代目标 Mac 上的完整安装验收。安装失败时请根据输出修复问题后重新运行；已完成的步骤不会自动回滚。
+
+### 更新演示
+
+[Terminal demo](.github/workflows/demo.yml) 使用 [VHS](https://github.com/charmbracelet/vhs) 录制 [docs/demo.tape](docs/demo.tape)。相关文件推送到 `main` 时自动运行，也可手动触发。工作流将 GIF 保存为构建产物，并仅将 `docs/demo.gif` 提交回 `main`；图片更新不会再次触发录制，过时的工作流也不会覆盖新提交。
+
+本地安装 VHS 及其依赖后，在项目根目录执行：
+
+```bash
+vhs docs/demo.tape
+```
 
 相关文档：[Homebrew Bundle](https://docs.brew.sh/Brew-Bundle-and-Brewfile) · [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) · [Spaceship](https://github.com/spaceship-prompt/spaceship-prompt)

@@ -11,6 +11,12 @@ Install everyday apps and set up your terminal with a customizable Brewfile and 
 - **Keep your settings.** Start from the official Zsh configuration and apply focused additions. Existing files stay untouched unless you opt in.
 - **Preview first.** Inspect the plan before making changes. Homebrew detection handles Apple Silicon and Intel paths.
 
+## Terminal preview
+
+![Hello Mac CLI help and dry-run preview](docs/demo.gif)
+
+Recorded from real `--help` and `all --dry-run` output in CI. This demo does not install apps or represent a native macOS terminal window.
+
 ## Quick start
 
 You need macOS, Git, and access to Homebrew and GitHub. macOS may prompt you to install Xcode Command Line Tools when you first use Git.
@@ -201,5 +207,15 @@ shellcheck -x setup.sh scripts/*.sh tests/*.sh
 Tests use temporary directories and mock installation commands to cover previews, argument validation, configuration preservation, backups, official templates, repeated runs, and download failures. They do not install real apps. GitHub Actions also validates the Brewfile, JSON, and color profiles.
 
 These checks do not replace a complete installation on a target Mac. If setup fails, resolve the reported issue and rerun it; completed steps are not automatically rolled back.
+
+### Refreshing the demo
+
+[Terminal demo](.github/workflows/demo.yml) uses [VHS](https://github.com/charmbracelet/vhs) to record [docs/demo.tape](docs/demo.tape) on relevant pushes to `main`, or on manual dispatch. It uploads the GIF as a workflow artifact and commits only `docs/demo.gif` back to `main`. Image-only commits do not trigger another recording. Stale runs do not overwrite newer changes.
+
+To render locally with VHS and its dependencies installed, run from the repository root:
+
+```bash
+vhs docs/demo.tape
+```
 
 [Homebrew Bundle](https://docs.brew.sh/Brew-Bundle-and-Brewfile) · [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) · [Spaceship](https://github.com/spaceship-prompt/spaceship-prompt)

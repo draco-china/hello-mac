@@ -1,0 +1,60 @@
+name: Terminal demo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - setup.sh
+      - scripts/**
+      - config/zsh/**
+      - Brewfile
+      - docs/demo.tape
+      - .github/workflows/demo.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: terminal-demo
+  cancel-in-progress: true
+
+jobs:
+  record:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify preview commands
+        run: |
+          bash tests/smoke.sh
+          ./setup.sh --help
+          ./setup.sh all --dry-run
+      - name: Record terminal demo
+        uses: charmbracelet/vhs-action@f6d7db07a432fcd3b06772628d36a57f96d95dcf # v2.1.1
+        with:
+          path: docs/demo.tape
+          version: v0.11.0
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: terminal-demo
+          path: docs/demo.gif
+          if-no-files-found: error
+      - name: Update README asset
+        run: |
+          git fetch origin main
+          if [ "$(git rev-parse origin/main)" != "$GITHUB_SHA" ]; then
+            echo "main has advanced; skipping this outdated recording."
+            exit 0
+          fi
+          git add docs/demo.gif
+          if git diff --cached --quiet; then
+            echo "Demo is already up to date."
+            exit 0
+          fi
+          git config user.name "Draco"
+          git config user.email "draco.coder@gmail.com"
+          git commit -m "docs: refresh terminal demo"
+          git push origin HEAD:main
