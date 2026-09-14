@@ -3,56 +3,54 @@
 
 # 软件源
 # tap "mongodb/brew"
-# brew services 已内置，不再需要 homebrew/services tap
-# homebrew/cask-versions、homebrew/cask-fonts 旧 tap 不再需要
 
-# 命令行工具（只列直接使用的工具，依赖由 Homebrew 自动安装）
-brew "bat"
+# 命令行工具
+# brew "bat"
 # Dependency manager for Cocoa projects
-brew "cocoapods"
+# brew "cocoapods"
 # GitHub command-line tool
-brew "gh"
+# brew "gh"
 # GNU Privacy Guard (OpenPGP)
-brew "gnupg"
+# brew "gnupg"
 # brew "mongodb/brew/mongodb-community" # 需要 mongodb/brew tap
 # brew "nginx"
 # brew "node"
 brew "nvm"
 # PostgreSQL
-brew "postgresql"
+# brew "postgresql"
 # Rust toolchain installer
-brew "rustup"
+# brew "rustup"
 # brew "yarn"
 
 # 应用
 # Adobe
-cask "adobe-creative-cloud"
+# cask "adobe-creative-cloud"
 # Tools for building Android applications
-cask "android-studio"
+# cask "android-studio"
 # Tool to flash OS images to SD cards & USB drives
-cask "balenaetcher"
+# cask "balenaetcher"
 # 暴雪战网
-cask "battle-net"
+# cask "battle-net"
 # 抓包神器 / Mock 工具
 # cask "charles"
 # ChatGPT
 cask "chatgpt"
 # Mac 专属的文档管理工具
-cask "dash"
+# cask "dash"
 # 钉钉
-cask "dingtalk"
+# cask "dingtalk"
 # Docker Desktop（包含 Docker CLI 和 Compose）
-cask "docker-desktop"
+# cask "docker-desktop"
 # SSH 工具客户端
-cask "electerm"
+# cask "electerm"
 # Collaborative team software
 cask "figma"
 # Google 浏览器
 cask "google-chrome"
 # 视频播放器
-cask "iina"
+# cask "iina"
 # 终端
-cask "iterm2"
+# cask "iterm2"
 # 飞书
 cask "lark"
 # 一款全能的下载工具
@@ -60,15 +58,15 @@ cask "lark"
 # 网易云音乐
 cask "neteasemusic"
 # 虚拟机
-cask "parallels"
+# cask "parallels"
 # Touch Bar 自定义（仅适合带 Touch Bar 的 Mac）
-cask "pock"
+# cask "pock"
 # API 请求测试
 # cask "postman"
 # QQ
 cask "qq"
 # QQ 音乐
-cask "qqmusic"
+# cask "qqmusic"
 # SSH 工具客户端
 # cask "royal-tsx"
 # 远程工具
@@ -78,9 +76,9 @@ cask "telegram"
 # 腾讯柠檬清理
 cask "tencent-lemon"
 # 腾讯会议
-cask "tencent-meeting"
+# cask "tencent-meeting"
 # SSH client
-cask "termius"
+# cask "termius"
 # OpenVPN Client 的一个 GUI 版本
 # cask "tunnelblick"
 # VS Code 编辑器
@@ -88,16 +86,16 @@ cask "visual-studio-code"
 # 微信
 cask "wechat"
 # 微信开发者工具
-cask "wechatwebdevtools"
+# cask "wechatwebdevtools"
 # Windows App / Remote Desktop
-cask "windows-app"
+# cask "windows-app"
 # All-in-one office suite
-cask "wpsoffice"
+# cask "wpsoffice"
 # 远程会议
-cask "zoom"
+# cask "zoom"
 
 # 字体
 # Fira Code 字体
-cask "font-fira-code"
+# cask "font-fira-code"
 # Terminal font with prompt icons
 cask "font-sauce-code-pro-nerd-font"
