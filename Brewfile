@@ -2,7 +2,6 @@
 # 默认跟随软件源当前版本；按需取消可选条目的注释。
 
 # 软件源
-tap "hyperpteltd/tap"
 # tap "mongodb/brew"
 # brew services 已内置，不再需要 homebrew/services tap
 # homebrew/cask-versions、homebrew/cask-fonts 旧 tap 不再需要
@@ -56,8 +55,6 @@ cask "electerm"
 cask "figma"
 # Google 浏览器
 cask "google-chrome"
-# Hyper VPN（使用公开 tap，不依赖本机 SSH 别名）
-cask "hyperpteltd/tap/hyper-vpn"
 # 视频播放器
 cask "iina"
 # 终端
