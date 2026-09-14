@@ -6,28 +6,22 @@
 # brew services 已内置，不再需要 homebrew/services tap
 # homebrew/cask-versions、homebrew/cask-fonts 旧 tap 不再需要
 
-# 命令行工具
+# 命令行工具（只列直接使用的工具，依赖由 Homebrew 自动安装）
 brew "bat"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
 # GitHub command-line tool
 brew "gh"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
-# TIFF library and utilities
-brew "libtiff"
 # brew "mongodb/brew/mongodb-community" # 需要 mongodb/brew tap
 # brew "nginx"
 # brew "node"
 brew "nvm"
-# PostgreSQL（跟随 Homebrew 当前稳定主版本）
+# PostgreSQL
 brew "postgresql"
 # Rust toolchain installer
 brew "rustup"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
 # brew "yarn"
 
 # 应用
@@ -47,7 +41,7 @@ cask "chatgpt"
 cask "dash"
 # 钉钉
 cask "dingtalk"
-# App to build and share containerised applications and microservices
+# Docker Desktop（包含 Docker CLI 和 Compose）
 cask "docker-desktop"
 # SSH 工具客户端
 cask "electerm"
