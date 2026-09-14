@@ -25,8 +25,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      HELLO_MAC_DEMO_DIR: ${{ runner.temp }}/hello-mac-demo
     steps:
       - uses: actions/checkout@v4
       - name: Verify preview commands
@@ -36,6 +34,7 @@ jobs:
           ./setup.sh all --dry-run
       - name: Install Zsh and Nerd Font
         run: |
+          echo "HELLO_MAC_DEMO_DIR=$RUNNER_TEMP/hello-mac-demo" >> "$GITHUB_ENV"
           sudo apt-get update
           sudo apt-get install -y zsh
           curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/SourceCodePro.zip -o "$RUNNER_TEMP/source-code-pro.zip"
