@@ -1,6 +1,6 @@
 {
   "Thin Strokes" : 4,
-  "Working Directory" : "\/Users\/draco",
+  "Working Directory" : "",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
     "Red Component" : 0.32941177487373352,
@@ -546,7 +546,7 @@
     "Green Component" : 0.13333334028720856
   },
   "Blur" : true,
-  "Normal Font" : "SauceCodeProNerdFontCompleteM-Regular 12",
+  "Normal Font" : "SauceCodeProNFM-Regular 12",
   "Vertical Spacing" : 1,
   "Ansi 7 Color" : {
     "Red Component" : 0.97254902124404907,
@@ -590,7 +590,7 @@
     "Green Component" : 0.12941177189350128
   },
   "Screen" : -1,
-  "Non Ascii Font" : "SauceCodeProNerdFontCompleteM-Regular 12",
+  "Non Ascii Font" : "SauceCodeProNFM-Regular 12",
   "Ansi 13 Color" : {
     "Red Component" : 1,
     "Color Space" : "sRGB",

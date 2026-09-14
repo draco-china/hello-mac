@@ -1,0 +1,22 @@
+name: Check
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  shell:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax and isolated behavior tests
+        run: |
+          bash tests/smoke.sh
+          zsh -n config/zsh/custom.zsh
+          ruby -c Brewfile
+          plutil -lint themes/*.terminal themes/*.itermcolors
+          python3 -m json.tool config/iterm2/Default.json > /dev/null
+      - name: ShellCheck
+        run: |
+          brew install shellcheck
+          shellcheck -x setup.sh scripts/*.sh tests/*.sh

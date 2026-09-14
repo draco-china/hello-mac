@@ -1,58 +1,205 @@
-# EasySetup
+# Hello Mac
 
-## 主要特点
+**English** · [简体中文](README.zh-CN.md)
 
-- 一键安装常用软件
-- 可自定义软件列表,添加需要的应用
-- 支持oh-my-zsh等工具的安装和配置
-- 提供iTerm2、VSCode等工具的配色方案
-- 这个项目使用Shell脚本实现自动化流程,对新手用户很友好。它节省时间,提高生产力,是配置新Mac系统的好帮手
-- 这是一个为你的Mac自动安装软件的Bash脚本，让你抽出时间喝咖啡而不是把时间花费在下载和安装你需要的软件
-- 如果还有其他建议欢迎提出
+**Get your Mac ready to feel like yours.**
 
-## 开始
+Install everyday apps and set up your terminal with a customizable Brewfile and a few commands.
 
-1. 克隆本仓库到您的电脑 `git clone https://github.com/Daker-china/Daker-script.git`
-2. 进入仓库目录，要执行安装，只需要执行`./brew_install_app_for_mac.sh`即可。如果提示此脚本没有运行权限，请执行`chmod u+x brew_install_app_for_mac.sh`
+- **Choose your apps.** Manage applications, command-line tools, and fonts with Homebrew.
+- **Make your terminal yours.** Set up Oh My Zsh, Spaceship, autosuggestions, and syntax highlighting.
+- **Keep your settings.** Start from the official Zsh configuration and apply focused additions. Existing files stay untouched unless you opt in.
+- **Preview first.** Inspect the plan before making changes. Homebrew detection handles Apple Silicon and Intel paths.
 
-软件清单分两个，`brew_cask_app_list`为GUI软件包，`brew_cli_app_list`为CLI软件包，这二者都是数组。
+## Quick start
 
-## 如何添加自定义的软件包 🔥
+You need macOS, Git, and access to Homebrew and GitHub. macOS may prompt you to install Xcode Command Line Tools when you first use Git.
 
-这很简单，只需要改写`brew_install_app_for_mac.sh`里面的`brew_cask_app_list`和`brew_cli_app_list`这两个数组即可，你可以删除里面你不想要的软件包，你也可以在对应的数组里面加入你想要的软件包，注意分清GUI和CLI即可。
+```bash
+git clone https://github.com/draco-china/hello-mac.git
+cd hello-mac
+```
 
-## 使用
+### 1. Choose your apps
 
-> `./brew_install_app_for_mac.sh`
+Review [Brewfile](Brewfile) and comment out anything you do not need. It includes development tools, office apps, media apps, and commercial software. Optional entries and their notes are kept in the file.
 
-### iTerm2 + oh-my-zsh 安装配置
+To keep your own selection outside version control:
 
-安装软件及相关命令
-> `./install_oh_my_zsh.sh`
+```bash
+cp Brewfile Brewfile.local
+# Edit Brewfile.local before continuing.
+```
 
-oh-my-zsh 配置文件
-`.zshrc`
+### 2. Preview the plan
 
-iTerm2 Dracula+ 主题文件
-`Dracula+.itermcolors`
+```bash
+./setup.sh all --file ./Brewfile.local --dry-run
+```
 
-Terminal Dracula+ 主题文件
-`Dracula+.terminal`
+A dry run shows the planned commands without downloading, installing, or writing configuration. It does not validate package availability or system compatibility.
 
-Terminal 默认配置文件
-`Default.json`
+### 3. Run setup
 
-VS Code 字体配置
-`"Monaco, Meslo, Consolas, 'Courier New', monospace, 'SauceCodePro Nerd Font Mono'"`
+```bash
+./setup.sh all --file ./Brewfile.local
+```
 
-Terminal && iTerm2 字体配置
-`'SauceCodePro Nerd Font Mono'`
+Run as your normal user, without `sudo`. If Homebrew is missing, its official installer runs and requests permissions as needed. Open a new terminal when setup finishes.
 
-Terminal 效果预览
-![Terminal](./img/Terminal.png)
+Already have a `.zshrc`? Setup installs the components but keeps your file. See [Existing configurations](#existing-configurations) to enable the terminal settings.
 
-iTerm2 效果预览
-![iTerm2](./img/iTerm2.png)
+## Commands
 
-VS Code 效果预览
-![VS Code](./img/VS%20Code.png)
+| Command | Purpose |
+| --- | --- |
+| `./setup.sh` or `./setup.sh apps` | Install the apps in your Brewfile |
+| `./setup.sh shell` | Install the font, Oh My Zsh, plugins, and theme |
+| `./setup.sh all` | Run app installation followed by shell setup |
+| `./setup.sh --help` | Show help |
+
+| Option | Purpose |
+| --- | --- |
+| `--file PATH` | Use a custom Brewfile for `apps` or `all` |
+| `--dry-run` | Preview without making changes |
+| `--configure-zshrc` | Back up and configure an existing `.zshrc` during `shell` or `all` |
+
+The default Brewfile and bundled resources are resolved relative to the script. A custom `--file` path is relative to your current working directory.
+
+## App selection
+
+[Brewfile](Brewfile) uses Homebrew Bundle syntax:
+
+```ruby
+# Command-line tools
+brew "bat"
+brew "nvm"
+
+# Applications and fonts
+cask "iterm2"
+cask "visual-studio-code"
+cask "font-fira-code"
+
+# Keep optional apps commented out until you need them.
+# cask "postman"
+```
+
+`Brewfile.local` is ignored by Git. Unavailable entries are preserved as comments with notes; check their current package names and requirements before enabling them.
+
+App installation uses `brew bundle install --no-upgrade` to avoid explicitly upgrading installed entries. Homebrew may still update dependencies as needed. Setup does not run global cache cleanup.
+
+## Shell setup
+
+`./setup.sh shell` installs:
+
+| Component | Purpose |
+| --- | --- |
+| Oh My Zsh | Zsh configuration framework |
+| Spaceship | Prompt with directory, Git, and environment information |
+| zsh-autosuggestions | Command suggestions based on your history |
+| zsh-syntax-highlighting | Syntax highlighting as you type |
+| Sauce Code Pro Nerd Font | Terminal font with prompt icons |
+
+### New configurations
+
+When `.zshrc` is missing, setup uses the file generated by the official Oh My Zsh installer, or the official template from an existing installation. Hello Mac inserts its configuration before Oh My Zsh loads; it does not maintain a replacement copy of the default file.
+
+[custom.zsh](config/zsh/custom.zsh) defines the theme, plugins, Homebrew path initialization, and NVM loading. Existing plugins are retained, duplicates are removed, and syntax highlighting is placed last.
+
+The configuration is copied into `.zshrc` during setup. It does not depend on this repository remaining in place. To apply later changes to `custom.zsh`, rerun setup with `--configure-zshrc`.
+
+### Existing configurations
+
+Your `.zshrc` is preserved by default. To apply the theme and plugin settings:
+
+```bash
+./setup.sh shell --configure-zshrc
+```
+
+Setup creates a backup, then inserts or updates the `Hello Mac` block before the standard `source "$ZSH/oh-my-zsh.sh"` line. Settings and comments outside that block remain in place. Personal settings later in the file can override values from the block.
+
+If the script cannot find exactly one standard Oh My Zsh loading line, it stops the configuration step without changing the file. In that case, merge [custom.zsh](config/zsh/custom.zsh) manually.
+
+The backup path is printed during setup. To restore it, replace the example suffix with the actual backup filename:
+
+```bash
+cp "$HOME/.zshrc.hello-mac-backup.ACTUAL_SUFFIX" "$HOME/.zshrc"
+```
+
+If `.zshrc` is a symbolic link, configuration replaces the link with a regular file while leaving its target unchanged. The backup contains the original configuration contents.
+
+### Custom locations
+
+Setup respects these exported environment variables:
+
+| Variable | Default |
+| --- | --- |
+| `ZSH` | `$HOME/.oh-my-zsh` |
+| `ZSH_CUSTOM` | `$ZSH/custom` |
+| `ZDOTDIR` | `$HOME`, used to locate `.zshrc` |
+
+With a custom `ZDOTDIR`, backups and restoration use that directory too. If these variables are only defined inside your current `.zshrc`, export them before running setup.
+
+### After setup
+
+Select **SauceCodePro Nerd Font Mono** in your terminal's font settings. Setup does not change your default shell. To switch manually:
+
+```bash
+chsh -s /bin/zsh
+```
+
+If your Brewfile includes NVM, open a new terminal and install Node.js:
+
+```bash
+nvm install --lts
+```
+
+The `shell` command does not install NVM itself; the configuration loads it only when available. Existing plugin and theme repositories are not automatically updated. To update one, run `git pull --ff-only` in its directory.
+
+## Colors and fonts
+
+Import the bundled Dracula+ colors or iTerm2 profile manually:
+
+| File | Purpose |
+| --- | --- |
+| [Dracula+.itermcolors](themes/Dracula%2B.itermcolors) | iTerm2 color preset |
+| [Dracula+.terminal](themes/Dracula%2B.terminal) | Apple Terminal profile |
+| [Default.json](config/iterm2/Default.json) | Example iTerm2 profile |
+
+Adjust the font, transparency, and window settings after importing. For VS Code:
+
+```json
+{
+  "editor.fontFamily": "'SauceCodePro Nerd Font Mono', Menlo, Monaco, monospace"
+}
+```
+
+## Project structure
+
+```text
+hello-mac/
+├── setup.sh                    # Command entry point
+├── Brewfile                    # App selection and optional entries
+├── scripts/                    # Homebrew and shell setup
+├── config/
+│   ├── zsh/custom.zsh           # Additional Zsh settings
+│   └── iterm2/Default.json      # Example iTerm2 profile
+├── themes/                     # Terminal colors
+└── tests/                      # Isolated regression tests
+```
+
+## Development
+
+```bash
+bash tests/smoke.sh
+zsh -n config/zsh/custom.zsh
+
+# Requires ShellCheck.
+shellcheck -x setup.sh scripts/*.sh tests/*.sh
+```
+
+Tests use temporary directories and mock installation commands to cover previews, argument validation, configuration preservation, backups, official templates, repeated runs, and download failures. They do not install real apps. GitHub Actions also validates the Brewfile, JSON, and color profiles.
+
+These checks do not replace a complete installation on a target Mac. If setup fails, resolve the reported issue and rerun it; completed steps are not automatically rolled back.
+
+[Homebrew Bundle](https://docs.brew.sh/Brew-Bundle-and-Brewfile) · [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) · [Spaceship](https://github.com/spaceship-prompt/spaceship-prompt)
