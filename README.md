@@ -13,9 +13,9 @@ Install everyday apps and set up your terminal with a customizable Brewfile and 
 
 ## Terminal preview
 
-![Hello Mac CLI help and dry-run preview](docs/demo.gif)
+![Hello Mac personalized Zsh environment](docs/demo.gif)
 
-Recorded from real `--help` and `all --dry-run` output in CI. This demo does not install apps or represent a native macOS terminal window.
+Recorded in CI after installing Oh My Zsh, Spaceship, and both plugins, then loading the project’s `custom.zsh` with Sauce Code Pro Nerd Font. It shows the configured prompt, directory navigation, syntax highlighting, and history suggestions. The terminal renderer is VHS on Linux, not a native macOS application window.
 
 ## Quick start
 
@@ -212,9 +212,11 @@ These checks do not replace a complete installation on a target Mac. If setup fa
 
 [Terminal demo](.github/workflows/demo.yml) uses [VHS](https://github.com/charmbracelet/vhs) to record [docs/demo.tape](docs/demo.tape) on relevant pushes to `main`, or on manual dispatch. It uploads the GIF as a workflow artifact and commits only `docs/demo.gif` back to `main`. Image-only commits do not trigger another recording. Stale runs do not overwrite newer changes.
 
-To render locally with VHS and its dependencies installed, run from the repository root:
+To render locally with Zsh, VHS, its dependencies, and Sauce Code Pro Nerd Font installed, run from the repository root. Shell components are installed in a fresh temporary directory, leaving your `.zshrc` unchanged:
 
 ```bash
+export HELLO_MAC_DEMO_DIR="$(mktemp -d)/hello-mac-demo"
+bash scripts/prepare-demo.sh
 vhs docs/demo.tape
 ```
 

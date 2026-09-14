@@ -1,32 +1,51 @@
-# Record real CLI output only. Never run an actual installation in the demo.
+# Load the real environment prepared by scripts/prepare-demo.sh.
 Output docs/demo.gif
-Require bash
+Require zsh
 Set Shell "bash"
-Set FontFamily "JetBrains Mono"
-Set FontSize 16
+Set FontFamily "SauceCodePro Nerd Font Mono"
+Set FontSize 18
 Set Width 1280
 Set Height 720
 Set Padding 24
 Set Theme "Dracula"
-Set TypingSpeed 45ms
+Set TypingSpeed 75ms
 Set Framerate 15
 
 Hide
-Type "export PS1='$ '; export HOME=/tmp/hello-mac-demo; unset ZSH ZSH_CUSTOM ZDOTDIR; clear"
+Type "export ZDOTDIR=\"$HELLO_MAC_DEMO_DIR/zsh\"; exec zsh"
+Enter
+Sleep 3s
+Type "clear"
 Enter
 Sleep 500ms
 Show
 
-Type "./setup.sh --help"
+Type "ls"
 Enter
-Sleep 5s
+Sleep 2s
+Type "cd config/zsh"
+Enter
+Sleep 2s
+Type "ls"
+Enter
+Sleep 2s
+Type "cd ../.."
+Enter
+Sleep 2s
 
 Hide
 Type "clear"
 Enter
 Sleep 500ms
 Show
-
-Type "./setup.sh all --dry-run"
+Type "./setup.sh --help"
 Enter
-Sleep 8s
+Sleep 4s
+
+# Retype a command from the recording's own history to show autosuggestions.
+Type "./set"
+Sleep 3s
+Right
+Sleep 1s
+Ctrl+C
+Sleep 2s

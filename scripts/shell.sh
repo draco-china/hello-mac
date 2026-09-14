@@ -8,13 +8,18 @@ clone_missing() {
     fi
 }
 install_shell() {
+    run brew install --cask font-sauce-code-pro-nerd-font
+    configure_shell
+}
+
+# Shared by macOS setup and the isolated CI recording environment.
+configure_shell() {
     local zsh_dir custom_dir zshrc backup existed=0 base staged block
     local begin="# >>> Hello Mac >>>" end="# <<< Hello Mac <<<"
     zsh_dir=${ZSH:-$HOME/.oh-my-zsh}
     custom_dir=${ZSH_CUSTOM:-$zsh_dir/custom}
     zshrc=${ZDOTDIR:-$HOME}/.zshrc
     [[ ! -e $zshrc && ! -L $zshrc ]] || existed=1
-    run brew install --cask font-sauce-code-pro-nerd-font
     if [[ ! -f $zsh_dir/oh-my-zsh.sh ]]; then
         [[ ! -e $zsh_dir && ! -L $zsh_dir ]] || die "Oh My Zsh directory exists but is incomplete: $zsh_dir"
         if [[ $DRY_RUN == 1 ]]; then

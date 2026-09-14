@@ -13,9 +13,9 @@
 
 ## 终端预览
 
-![Hello Mac 命令帮助和安装计划预览](docs/demo.gif)
+![Hello Mac 个性化 Zsh 环境](docs/demo.gif)
 
-由 CI 录制真实的 `--help` 和 `all --dry-run` 输出。演示不会安装应用，也不代表 macOS 原生终端窗口的外观。
+CI 实际安装 Oh My Zsh、Spaceship 和两个插件，加载项目的 `custom.zsh`，配合 Sauce Code Pro Nerd Font 录制。演示展示配置后的提示符、目录切换、语法高亮与历史建议。画面使用 Linux 上的 VHS 终端渲染，并非 macOS 原生应用窗口。
 
 ## 快速开始
 
@@ -212,9 +212,11 @@ shellcheck -x setup.sh scripts/*.sh tests/*.sh
 
 [Terminal demo](.github/workflows/demo.yml) 使用 [VHS](https://github.com/charmbracelet/vhs) 录制 [docs/demo.tape](docs/demo.tape)。相关文件推送到 `main` 时自动运行，也可手动触发。工作流将 GIF 保存为构建产物，并仅将 `docs/demo.gif` 提交回 `main`；图片更新不会再次触发录制，过时的工作流也不会覆盖新提交。
 
-本地安装 VHS 及其依赖后，在项目根目录执行：
+本地安装 Zsh、VHS 及其依赖和 Sauce Code Pro Nerd Font 后，在项目根目录执行。所需的 Shell 组件安装到新的临时目录，不修改你的 `.zshrc`：
 
 ```bash
+export HELLO_MAC_DEMO_DIR="$(mktemp -d)/hello-mac-demo"
+bash scripts/prepare-demo.sh
 vhs docs/demo.tape
 ```
 

@@ -25,6 +25,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      HELLO_MAC_DEMO_DIR: ${{ runner.temp }}/hello-mac-demo
     steps:
       - uses: actions/checkout@v4
       - name: Verify preview commands
@@ -32,6 +34,26 @@ jobs:
           bash tests/smoke.sh
           ./setup.sh --help
           ./setup.sh all --dry-run
+      - name: Install Zsh and Nerd Font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zsh
+          curl -fL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/SourceCodePro.zip -o "$RUNNER_TEMP/source-code-pro.zip"
+          mkdir -p "$HOME/.local/share/fonts/hello-mac"
+          unzip -q "$RUNNER_TEMP/source-code-pro.zip" '*.ttf' -d "$HOME/.local/share/fonts/hello-mac"
+          fc-cache -f
+          fc-match 'SauceCodePro Nerd Font Mono'
+      - name: Prepare personalized shell
+        run: |
+          bash scripts/prepare-demo.sh
+          ZDOTDIR="$HELLO_MAC_DEMO_DIR/zsh" zsh -ic '
+            [[ $ZSH_THEME == spaceship ]] &&
+            (( ${plugins[(Ie)zsh-autosuggestions]} )) &&
+            (( ${plugins[(Ie)zsh-syntax-highlighting]} )) &&
+            (( $+functions[prompt_spaceship_setup] )) &&
+            (( $+functions[_zsh_autosuggest_start] )) &&
+            (( $+functions[_zsh_highlight] ))
+          '
       - name: Record terminal demo
         uses: charmbracelet/vhs-action@f6d7db07a432fcd3b06772628d36a57f96d95dcf # v2.1.1
         with:
